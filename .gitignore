@@ -1,3 +1,6 @@
+/.vscode/
+env/
 sandbox.py
 __pycache__/*
 *.pyc
+
