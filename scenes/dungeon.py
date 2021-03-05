@@ -24,5 +24,7 @@ class Dungeon:
         self.sm_room.north_exit = self.starting_room
         self.ne_room.west_exit = self.starting_room
 
-        self.starting_room.entities.append(Puzzle())
-        self.starting_room.entities.append(Trap())
+        # self.starting_room.entities.append(Puzzle())
+        self.starting_room.entities.append(
+            Trap(name="Start Room Trap", health_cost=10, health_gain=2)
+        )
