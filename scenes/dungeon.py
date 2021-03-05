@@ -1,3 +1,4 @@
+from entities.trap import Trap
 from scenes.room import Room
 from entities.puzzle import Puzzle
 
@@ -24,4 +25,4 @@ class Dungeon:
         self.ne_room.west_exit = self.starting_room
 
         self.starting_room.entities.append(Puzzle())
-        
+        self.starting_room.entities.append(Trap())
