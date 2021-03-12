@@ -7,7 +7,9 @@ class Puzzle(Entity):
 
     def do(self, action, actor):
         if action == self.answer:
+            print("Yay you got that right!")
             return True
+        print("Sorry, you got that wrong, try again")
         return False
 
     def get_prompt(self):
