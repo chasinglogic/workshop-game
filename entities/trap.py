@@ -1,4 +1,5 @@
 import random
+from copy import deepcopy
 
 from actors.player import Player
 from entities.entity import Entity
@@ -30,11 +31,12 @@ class Trap(Entity):
             print(f"{actor.name}, the action you have selected is invalid!")
             return False
 
-        # Ignore the action passed in and make the action truly random otherwise
-        # the user will soon learn the pattern!
-        # selected_action = self.possible_actions[int(action)-1]
-        random_int = random.randint(0, len(self.possible_actions) - 1)
-        selected_action = self.possible_actions[random_int]
+        # Make the correct answer random each time
+        shuffled = random.sample(
+            deepcopy(self.possible_actions),
+            len(self.possible_actions),
+        )
+        selected_action = shuffled[int(action) - 1]
 
         if selected_action == "Run into":
             if self.status == "Active":
