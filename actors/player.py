@@ -1,4 +1,6 @@
+
 from items.item import Item, ItemType
+
 
 class Player:
     def __init__(self, name):
@@ -31,3 +33,19 @@ class Player:
                 print("No available items to use")
 
         return False
+
+    def get_armor(self):
+        return sum(
+            item.get_armor_value()
+            for item in self.inventory
+            if item.get_type() == ItemType.ARMOR
+        )
+
+    def take_damage(self, value):
+        armor = self.get_armor()
+        damage = value - armor
+
+        damage = max(0, damage)
+        self.health -= damage
+        return damage
+

@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from enum import Enum
+from typing import List
 
 class ItemType(Enum):
     WEAPON = 1
@@ -8,7 +9,7 @@ class ItemType(Enum):
 
 class Item(ABC):
     @abstractmethod
-    def get_available_actions(self):
+    def get_available_actions(self) -> List[str]:
         raise NotImplementedError
 
     @abstractmethod
@@ -16,5 +17,5 @@ class Item(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_information(self):
+    def get_information(self) -> str:
         raise NotImplementedError

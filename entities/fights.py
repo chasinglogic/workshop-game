@@ -12,14 +12,14 @@ class Fight(Entity):
             if monster.health <= 0:
                 print('You killed the monster!')
                 return True
-            actor.health -= 5
+            actor.take_damage(5)
             print(f'The monster hits you back for 5 health! You now have {actor.health} health left!')
             if actor.health <= 0:
                 print('The monster killed you!')
                 return True
         else:
             print('You missed!')
-            actor.health -= 5
+            actor.take_damage(5)
             print(f'The monster hits you back for 5 health! You now have {actor.health} health left!')
             if actor.health <= 0:
                 print('The monster killed you!')
