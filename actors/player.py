@@ -18,9 +18,6 @@ class Player:
         armor = self.get_armor()
         damage = value - armor
 
-        if damage < 0:
-            damage = 0
-
+        damage = max(0, damage)
         self.health -= damage
-
         return damage
