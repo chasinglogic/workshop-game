@@ -1,6 +1,10 @@
-env/*
-sandbox.py
+/.vscode/
+
 __pycache__/*
 *.pyc
+
+env/*
+sandbox.py
+
 *.idea*
 
