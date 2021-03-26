@@ -1,13 +1,8 @@
+from actors.actor import Actor
+from items.item import ItemType
 
-from items.item import Item, ItemType
 
-
-class Player:
-    def __init__(self, name):
-        self.health = 100
-        self.name = name
-        self.inventory = []
-        
+class Player(Actor):
     def use_item(self, inventory=None, target=None):
         if inventory is None:
             inventory = self.inventory
@@ -33,19 +28,3 @@ class Player:
                 print("No available items to use")
 
         return False
-
-    def get_armor(self):
-        return sum(
-            item.get_armor_value()
-            for item in self.inventory
-            if item.get_type() == ItemType.ARMOR
-        )
-
-    def take_damage(self, value):
-        armor = self.get_armor()
-        damage = value - armor
-
-        damage = max(0, damage)
-        self.health -= damage
-        return damage
-
