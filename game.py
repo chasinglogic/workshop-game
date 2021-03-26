@@ -1,6 +1,7 @@
 from actors.player import Player
 from scenes.dungeon import Dungeon
 
+
 class GameState:
     def __init__(self):
         name = input("Hey what's your name? ")
